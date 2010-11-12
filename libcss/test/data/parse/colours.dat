@@ -1,0 +1,76 @@
+## Simple colour values
+
+#data
+* { color: red }
+#errors
+#expected
+| 1 *
+|   0x02000018 0xff000000
+#reset
+
+#data
+* { color: #f00 }
+#errors
+#expected
+| 1 *
+|   0x02000018 0xff000000
+#reset
+
+#data
+* { color: #ff0000 }
+#errors
+#expected
+| 1 *
+|   0x02000018 0xff000000
+#reset
+
+#data
+* { color: rgb(255, 0, 0) }
+#errors
+#expected
+| 1 *
+|   0x02000018 0xff000000
+#reset
+
+#data
+* { color: rgb(100%, 0%, 0%) }
+#errors
+#expected
+| 1 *
+|   0x02000018 0xff000000
+#reset
+
+## Out-of-range rgb() parameters
+
+#data
+* { color: rgb(300, 0, 0) }
+#errors
+#expected
+| 1 *
+|   0x02000018 0xff000000
+#reset
+
+#data
+* { color: rgb(-10, 0, 0) }
+#errors
+#expected
+| 1 *
+|   0x02000018 0x00000000
+#reset
+
+#data
+* { color: rgb(150%, 0%, 0%) }
+#errors
+#expected
+| 1 *
+|   0x02000018 0xff000000
+#reset
+
+#data
+* { color: rgb(-10%, 0%, 0%) }
+#errors
+#expected
+| 1 *
+|   0x02000018 0x00000000
+#reset
+
