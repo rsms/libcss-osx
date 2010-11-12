@@ -11,7 +11,7 @@ universal binaries.
 
 ## License
 
-See dubdirectories libcss, libparserutils and libwapcaplet for details on their respective license.
+See subdirectories libcss, libparserutils and libwapcaplet for details on their respective license.
 
 The build script and other additions are licensed under an MIT license:
 
