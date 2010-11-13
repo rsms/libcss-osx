@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3AF14E0E128DE50300623011 /* libcss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF14E0B128DE50300623011 /* libcss.a */; };
+		3AF14E0F128DE50300623011 /* libparserutils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF14E0C128DE50300623011 /* libparserutils.a */; };
+		3AF14E10128DE50300623011 /* libwapcaplet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF14E0D128DE50300623011 /* libwapcaplet.a */; };
+		3AF14E3A128DE5CB00623011 /* CSS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AF14E38128DE5CB00623011 /* CSS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AF14E3B128DE5CB00623011 /* CSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14E39128DE5CB00623011 /* CSS.m */; };
+		3AF14E3D128DE73400623011 /* Aliases in Resources */ = {isa = PBXBuildFile; fileRef = 3AF14E3C128DE73400623011 /* Aliases */; };
+		3AF14E67128DE92500623011 /* CSSStylesheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AF14E65128DE92500623011 /* CSSStylesheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AF14E68128DE92500623011 /* CSSStylesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14E66128DE92500623011 /* CSSStylesheet.m */; };
+		3AF14E6E128DE9E300623011 /* css-cf-realloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14E6C128DE9E300623011 /* css-cf-realloc.m */; };
+		3AF14E8F128DF5D000623011 /* NSURL-blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14E8D128DF5D000623011 /* NSURL-blocks.m */; };
+		3AF14EE3128E060600623011 /* NSError-css.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AF14EE1128E060600623011 /* NSError-css.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AF14EE4128E060600623011 /* NSError-css.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14EE2128E060600623011 /* NSError-css.m */; };
+		3AF14F03128E087B00623011 /* CSS.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* CSS.framework */; };
+		3AF14F05128E087E00623011 /* CSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* CSS.framework */; };
+		3AF14F2C128E093800623011 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF14F2B128E093800623011 /* MainMenu.xib */; };
+		3AF14F30128E0A3300623011 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14F2F128E0A3300623011 /* AppDelegate.m */; };
+		3AF14F49128E0DB500623011 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14F48128E0DB500623011 /* main.m */; };
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3AF14F16128E08BF00623011 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* CSS */;
+			remoteInfo = CSS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3AF14F14128E089C00623011 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3AF14F03128E087B00623011 /* CSS.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF5E0370ADEE00C91783 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
+		3AF14E0B128DE50300623011 /* libcss.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcss.a; path = ../lib/libcss.a; sourceTree = SOURCE_ROOT; };
+		3AF14E0C128DE50300623011 /* libparserutils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libparserutils.a; path = ../lib/libparserutils.a; sourceTree = SOURCE_ROOT; };
+		3AF14E0D128DE50300623011 /* libwapcaplet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwapcaplet.a; path = ../lib/libwapcaplet.a; sourceTree = SOURCE_ROOT; };
+		3AF14E1A128DE57400623011 /* computed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = computed.h; sourceTree = "<group>"; };
+		3AF14E1B128DE57400623011 /* errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errors.h; sourceTree = "<group>"; };
+		3AF14E1C128DE57400623011 /* fpmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fpmath.h; sourceTree = "<group>"; };
+		3AF14E1D128DE57400623011 /* functypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functypes.h; sourceTree = "<group>"; };
+		3AF14E1E128DE57400623011 /* hint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hint.h; sourceTree = "<group>"; };
+		3AF14E1F128DE57400623011 /* libcss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libcss.h; sourceTree = "<group>"; };
+		3AF14E20128DE57400623011 /* properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = properties.h; sourceTree = "<group>"; };
+		3AF14E21128DE57400623011 /* select.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = select.h; sourceTree = "<group>"; };
+		3AF14E22128DE57400623011 /* stylesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stylesheet.h; sourceTree = "<group>"; };
+		3AF14E23128DE57400623011 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		3AF14E25128DE57400623011 /* libwapcaplet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libwapcaplet.h; sourceTree = "<group>"; };
+		3AF14E28128DE57400623011 /* codec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codec.h; sourceTree = "<group>"; };
+		3AF14E29128DE57400623011 /* mibenum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mibenum.h; sourceTree = "<group>"; };
+		3AF14E2A128DE57400623011 /* utf16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf16.h; sourceTree = "<group>"; };
+		3AF14E2B128DE57400623011 /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
+		3AF14E2C128DE57400623011 /* errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errors.h; sourceTree = "<group>"; };
+		3AF14E2D128DE57400623011 /* functypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functypes.h; sourceTree = "<group>"; };
+		3AF14E2F128DE57400623011 /* inputstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputstream.h; sourceTree = "<group>"; };
+		3AF14E30128DE57400623011 /* parserutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parserutils.h; sourceTree = "<group>"; };
+		3AF14E31128DE57400623011 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		3AF14E33128DE57400623011 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		3AF14E34128DE57400623011 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		3AF14E35128DE57400623011 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector.h; sourceTree = "<group>"; };
+		3AF14E38128DE5CB00623011 /* CSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSS.h; sourceTree = "<group>"; };
+		3AF14E39128DE5CB00623011 /* CSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSS.m; sourceTree = "<group>"; };
+		3AF14E3C128DE73400623011 /* Aliases */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Aliases; path = ../libcss/test/data/Aliases; sourceTree = SOURCE_ROOT; };
+		3AF14E65128DE92500623011 /* CSSStylesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSStylesheet.h; sourceTree = "<group>"; };
+		3AF14E66128DE92500623011 /* CSSStylesheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSStylesheet.m; sourceTree = "<group>"; };
+		3AF14E6B128DE9E300623011 /* css-cf-realloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "css-cf-realloc.h"; sourceTree = "<group>"; };
+		3AF14E6C128DE9E300623011 /* css-cf-realloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "css-cf-realloc.m"; sourceTree = "<group>"; };
+		3AF14E8C128DF5D000623011 /* NSURL-blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL-blocks.h"; sourceTree = "<group>"; };
+		3AF14E8D128DF5D000623011 /* NSURL-blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL-blocks.m"; sourceTree = "<group>"; };
+		3AF14EBE128E015700623011 /* h-objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "h-objc.h"; sourceTree = "<group>"; };
+		3AF14EE1128E060600623011 /* NSError-css.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError-css.h"; sourceTree = "<group>"; };
+		3AF14EE2128E060600623011 /* NSError-css.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError-css.m"; sourceTree = "<group>"; };
+		3AF14EFB128E083800623011 /* CSS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CSS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AF14F29128E091000623011 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AF14F2B128E093800623011 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		3AF14F2E128E0A3300623011 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3AF14F2F128E0A3300623011 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3AF14F31128E0A6C00623011 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
+		3AF14F48128E0DB500623011 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* CSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AF14EF9128E083800623011 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF14F05128E087E00623011 /* CSS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				3AF14E0E128DE50300623011 /* libcss.a in Frameworks */,
+				3AF14E0F128DE50300623011 /* libparserutils.a in Frameworks */,
+				3AF14E10128DE50300623011 /* libwapcaplet.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* CSS.framework */,
+				3AF14EFB128E083800623011 /* CSS Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* CSS */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				3AF14F28128E091000623011 /* example-app */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = CSS;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14E0B128DE50300623011 /* libcss.a */,
+				3AF14E0C128DE50300623011 /* libparserutils.a */,
+				3AF14E0D128DE50300623011 /* libwapcaplet.a */,
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14E3C128DE73400623011 /* Aliases */,
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* prefix.pch */,
+				3AF14EBE128E015700623011 /* h-objc.h */,
+				3AF14E6B128DE9E300623011 /* css-cf-realloc.h */,
+				3AF14E6C128DE9E300623011 /* css-cf-realloc.m */,
+				3AF14E8C128DF5D000623011 /* NSURL-blocks.h */,
+				3AF14E8D128DF5D000623011 /* NSURL-blocks.m */,
+				3AF14E38128DE5CB00623011 /* CSS.h */,
+				3AF14E39128DE5CB00623011 /* CSS.m */,
+				3AF14EE1128E060600623011 /* NSError-css.h */,
+				3AF14EE2128E060600623011 /* NSError-css.m */,
+				3AF14E65128DE92500623011 /* CSSStylesheet.h */,
+				3AF14E66128DE92500623011 /* CSSStylesheet.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14E19128DE57400623011 /* libcss */,
+				3AF14E24128DE57400623011 /* libwapcaplet */,
+				3AF14E26128DE57400623011 /* parserutils */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3AF14E19128DE57400623011 /* libcss */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14E1A128DE57400623011 /* computed.h */,
+				3AF14E1B128DE57400623011 /* errors.h */,
+				3AF14E1C128DE57400623011 /* fpmath.h */,
+				3AF14E1D128DE57400623011 /* functypes.h */,
+				3AF14E1E128DE57400623011 /* hint.h */,
+				3AF14E1F128DE57400623011 /* libcss.h */,
+				3AF14E20128DE57400623011 /* properties.h */,
+				3AF14E21128DE57400623011 /* select.h */,
+				3AF14E22128DE57400623011 /* stylesheet.h */,
+				3AF14E23128DE57400623011 /* types.h */,
+			);
+			name = libcss;
+			path = ../include/libcss;
+			sourceTree = SOURCE_ROOT;
+		};
+		3AF14E24128DE57400623011 /* libwapcaplet */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14E25128DE57400623011 /* libwapcaplet.h */,
+			);
+			name = libwapcaplet;
+			path = ../include/libwapcaplet;
+			sourceTree = SOURCE_ROOT;
+		};
+		3AF14E26128DE57400623011 /* parserutils */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14E27128DE57400623011 /* charset */,
+				3AF14E2C128DE57400623011 /* errors.h */,
+				3AF14E2D128DE57400623011 /* functypes.h */,
+				3AF14E2E128DE57400623011 /* input */,
+				3AF14E30128DE57400623011 /* parserutils.h */,
+				3AF14E31128DE57400623011 /* types.h */,
+				3AF14E32128DE57400623011 /* utils */,
+			);
+			name = parserutils;
+			path = ../include/parserutils;
+			sourceTree = SOURCE_ROOT;
+		};
+		3AF14E27128DE57400623011 /* charset */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14E28128DE57400623011 /* codec.h */,
+				3AF14E29128DE57400623011 /* mibenum.h */,
+				3AF14E2A128DE57400623011 /* utf16.h */,
+				3AF14E2B128DE57400623011 /* utf8.h */,
+			);
+			path = charset;
+			sourceTree = "<group>";
+		};
+		3AF14E2E128DE57400623011 /* input */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14E2F128DE57400623011 /* inputstream.h */,
+			);
+			path = input;
+			sourceTree = "<group>";
+		};
+		3AF14E32128DE57400623011 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14E33128DE57400623011 /* buffer.h */,
+				3AF14E34128DE57400623011 /* stack.h */,
+				3AF14E35128DE57400623011 /* vector.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		3AF14F28128E091000623011 /* example-app */ = {
+			isa = PBXGroup;
+			children = (
+				3AF14F29128E091000623011 /* Info.plist */,
+				3AF14F2B128E093800623011 /* MainMenu.xib */,
+				3AF14F31128E0A6C00623011 /* prefix.pch */,
+				3AF14F48128E0DB500623011 /* main.m */,
+				3AF14F2E128E0A3300623011 /* AppDelegate.h */,
+				3AF14F2F128E0A3300623011 /* AppDelegate.m */,
+			);
+			path = "example-app";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF14E3A128DE5CB00623011 /* CSS.h in Headers */,
+				3AF14E67128DE92500623011 /* CSSStylesheet.h in Headers */,
+				3AF14EE3128E060600623011 /* NSError-css.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3AF14EFA128E083800623011 /* CSS Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AF14F00128E083800623011 /* Build configuration list for PBXNativeTarget "CSS Example" */;
+			buildPhases = (
+				3AF14EF7128E083800623011 /* Resources */,
+				3AF14EF8128E083800623011 /* Sources */,
+				3AF14EF9128E083800623011 /* Frameworks */,
+				3AF14F14128E089C00623011 /* Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AF14F17128E08BF00623011 /* PBXTargetDependency */,
+			);
+			name = "CSS Example";
+			productName = "CSS Example";
+			productReference = 3AF14EFB128E083800623011 /* CSS Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8DC2EF4F0486A6940098B216 /* CSS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "CSS" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CSS;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = CSS;
+			productReference = 8DC2EF5B0486A6940098B216 /* CSS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "CSS" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* CSS */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* CSS */,
+				3AF14EFA128E083800623011 /* CSS Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AF14EF7128E083800623011 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF14F2C128E093800623011 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+				3AF14E3D128DE73400623011 /* Aliases in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AF14EF8128E083800623011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF14F30128E0A3300623011 /* AppDelegate.m in Sources */,
+				3AF14F49128E0DB500623011 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AF14E3B128DE5CB00623011 /* CSS.m in Sources */,
+				3AF14E68128DE92500623011 /* CSSStylesheet.m in Sources */,
+				3AF14E6E128DE9E300623011 /* css-cf-realloc.m in Sources */,
+				3AF14E8F128DF5D000623011 /* NSURL-blocks.m in Sources */,
+				3AF14EE4128E060600623011 /* NSError-css.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3AF14F17128E08BF00623011 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* CSS */;
+			targetProxy = 3AF14F16128E08BF00623011 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91AE08733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = prefix.pch;
+				HEADER_SEARCH_PATHS = ../include;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../lib\"",
+				);
+				PRODUCT_NAME = CSS;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		1DEB91AF08733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "NDEBUG=1";
+				HEADER_SEARCH_PATHS = ../include;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../lib\"",
+				);
+				PRODUCT_NAME = CSS;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		3AF14EFE128E083800623011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "example-app/prefix.pch";
+				INFOPLIST_FILE = "example-app/Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "CSS Example";
+			};
+			name = Debug;
+		};
+		3AF14EFF128E083800623011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "example-app/prefix.pch";
+				INFOPLIST_FILE = "example-app/Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "CSS Example";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "CSS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91AE08733DA50010E9CD /* Debug */,
+				1DEB91AF08733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "CSS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AF14F00128E083800623011 /* Build configuration list for PBXNativeTarget "CSS Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AF14EFE128E083800623011 /* Debug */,
+				3AF14EFF128E083800623011 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
