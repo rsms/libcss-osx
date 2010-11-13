@@ -3,6 +3,8 @@
 Simply an OS X build package for NetSurf libcss and dependencies, creating
 universal binaries.
 
+There's also an ongoing project building a Cocoa framework (see the `cocoa-framework` subdirectory).
+
 ## Upstream sources
 
     svn://svn.netsurf-browser.org/trunk/libcss          libcss
@@ -11,4 +13,26 @@ universal binaries.
 
 ## License
 
-See libcss/COPYING for details on the license of libcss. I put rest of this repository in the public domain -- no warranties, no restrictions. Heck, sell the bash scripts, make some doe!
+See libcss/COPYING for details on the license of libcss.
+
+The rest of this project is licensed under an MIT license as follows:
+
+Copyright (c) 2010 Rasmus Andersson <http://hunch.se/>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
