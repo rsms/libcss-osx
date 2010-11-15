@@ -60,7 +60,12 @@ gcc -g -W -Wall -o example1 example1.c -lcss -lparserutils -lwapcaplet -I../../i
 echo '------------------- CSS.framework -------------------'
 
 cd ../../cocoa-framework
-xcodebuild -target CSS -parallelizeTargets -configuration Release || exit $?
+xcodebuild -project CSS.xcodeproj \
+           -target CSS \
+           -parallelizeTargets \
+           -configuration Release \
+           build \
+           > /dev/null || exit $?
 cp -Rp build/Release/CSS.framework ../lib/CSS.framework
 
 echo "done"
