@@ -1,10 +1,13 @@
 
+@class CSSContext;
+
 @interface CSSStylesheet : NSObject {
   struct css_stylesheet *sheet_;
   NSURL* url_;
   volatile uint32_t hasStartedLoading_;
 }
 
+@property(readonly, nonatomic) struct css_stylesheet *sheet;
 @property(readonly, nonatomic) NSURL* url;
 
 - (id)initWithURL:(NSURL*)url;
@@ -27,5 +30,10 @@
 
 /// load |url_| asynchronously and invoke |callback| when loaded.
 - (BOOL)loadFromRepresentedURLWithCallback:(void(^)(NSError *error))callback;
+
+#pragma mark -
+#pragma mark Querying
+
+
 
 @end

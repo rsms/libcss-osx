@@ -492,6 +492,24 @@ css_error css_stylesheet_set_disabled(css_stylesheet *sheet, bool disabled)
 }
 
 /**
+ * Get user data (resolve_pw) of a stylesheet
+ *
+ * \param sheet	    The stylesheet to consider
+ * \param disabled  Pointer to location to receive disabled state
+ * \return CSS_OK on success, appropriate error otherwise
+ */
+css_error css_stylesheet_get_resolve_pw(css_stylesheet *sheet,
+    void **resolve_pw)
+{
+	if (sheet == NULL || resolve_pw == NULL)
+		return CSS_BADPARM;
+
+	*resolve_pw = sheet->resolve_pw;
+
+	return CSS_OK;
+}
+
+/**
  * Determine the memory-resident size of a stylesheet
  *
  * \param sheet	 Sheet to consider

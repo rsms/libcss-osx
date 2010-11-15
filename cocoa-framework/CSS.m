@@ -1,10 +1,11 @@
 #import "CSS.h"
-#import "css-cf-realloc.h"
+#import "internal.h"
 
 @interface CSS : NSObject {
 }
 @end
 @implementation CSS
+
 
 + (void)load {
   NSAutoreleasePool *pool = [NSAutoreleasePool new];

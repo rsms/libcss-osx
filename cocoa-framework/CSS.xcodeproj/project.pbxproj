@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AE5E53F1290985700B17C4F /* NSString-wapcaplet.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE5E53D1290985700B17C4F /* NSString-wapcaplet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE5E5401290985700B17C4F /* NSString-wapcaplet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5E53E1290985700B17C4F /* NSString-wapcaplet.m */; };
+		3AE5E554129099B900B17C4F /* CSSContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE5E552129099B900B17C4F /* CSSContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE5E555129099B900B17C4F /* CSSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5E553129099B900B17C4F /* CSSContext.m */; };
+		3AE5E5671290A18300B17C4F /* internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5E5651290A18300B17C4F /* internal.m */; };
+		3AE5E5E41290B4BC00B17C4F /* libcss in Headers */ = {isa = PBXBuildFile; fileRef = 3AE5E5D81290B4BC00B17C4F /* libcss */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE5E5F51290B65600B17C4F /* CSSStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE5E5F31290B65600B17C4F /* CSSStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE5E5F61290B65600B17C4F /* CSSStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5E5F41290B65600B17C4F /* CSSStyle.m */; };
+		3AE5E5FD1290B83A00B17C4F /* css-cf-realloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AF14E6B128DE9E300623011 /* css-cf-realloc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE5E6011290B90400B17C4F /* libwapcaplet in Headers */ = {isa = PBXBuildFile; fileRef = 3AE5E5FE1290B90400B17C4F /* libwapcaplet */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE5E6261290B92100B17C4F /* parserutils in Headers */ = {isa = PBXBuildFile; fileRef = 3AE5E6121290B92100B17C4F /* parserutils */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE5E68B1290BF3600B17C4F /* CSSSelectHandlerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE5E6891290BF3600B17C4F /* CSSSelectHandlerBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE5E68C1290BF3600B17C4F /* CSSSelectHandlerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5E68A1290BF3600B17C4F /* CSSSelectHandlerBase.m */; };
+		3AE5E7A31290CBC700B17C4F /* NSColor-css.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE5E7A11290CBC700B17C4F /* NSColor-css.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AE5E7A41290CBC700B17C4F /* NSColor-css.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE5E7A21290CBC700B17C4F /* NSColor-css.m */; };
 		3AF14E0E128DE50300623011 /* libcss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF14E0B128DE50300623011 /* libcss.a */; };
 		3AF14E0F128DE50300623011 /* libparserutils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF14E0C128DE50300623011 /* libparserutils.a */; };
 		3AF14E10128DE50300623011 /* libwapcaplet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF14E0D128DE50300623011 /* libwapcaplet.a */; };
@@ -56,32 +71,24 @@
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
+		3AE5E53D1290985700B17C4F /* NSString-wapcaplet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-wapcaplet.h"; sourceTree = "<group>"; };
+		3AE5E53E1290985700B17C4F /* NSString-wapcaplet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-wapcaplet.m"; sourceTree = "<group>"; };
+		3AE5E552129099B900B17C4F /* CSSContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSContext.h; sourceTree = "<group>"; };
+		3AE5E553129099B900B17C4F /* CSSContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSContext.m; sourceTree = "<group>"; };
+		3AE5E5641290A18300B17C4F /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		3AE5E5651290A18300B17C4F /* internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = internal.m; sourceTree = "<group>"; };
+		3AE5E5D81290B4BC00B17C4F /* libcss */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libcss; path = ../include/libcss; sourceTree = SOURCE_ROOT; };
+		3AE5E5F31290B65600B17C4F /* CSSStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSStyle.h; sourceTree = "<group>"; };
+		3AE5E5F41290B65600B17C4F /* CSSStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSStyle.m; sourceTree = "<group>"; };
+		3AE5E5FE1290B90400B17C4F /* libwapcaplet */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libwapcaplet; path = ../include/libwapcaplet; sourceTree = SOURCE_ROOT; };
+		3AE5E6121290B92100B17C4F /* parserutils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = parserutils; path = ../include/parserutils; sourceTree = SOURCE_ROOT; };
+		3AE5E6891290BF3600B17C4F /* CSSSelectHandlerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSSelectHandlerBase.h; sourceTree = "<group>"; };
+		3AE5E68A1290BF3600B17C4F /* CSSSelectHandlerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSSelectHandlerBase.m; sourceTree = "<group>"; };
+		3AE5E7A11290CBC700B17C4F /* NSColor-css.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor-css.h"; sourceTree = "<group>"; };
+		3AE5E7A21290CBC700B17C4F /* NSColor-css.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor-css.m"; sourceTree = "<group>"; };
 		3AF14E0B128DE50300623011 /* libcss.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcss.a; path = ../lib/libcss.a; sourceTree = SOURCE_ROOT; };
 		3AF14E0C128DE50300623011 /* libparserutils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libparserutils.a; path = ../lib/libparserutils.a; sourceTree = SOURCE_ROOT; };
 		3AF14E0D128DE50300623011 /* libwapcaplet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwapcaplet.a; path = ../lib/libwapcaplet.a; sourceTree = SOURCE_ROOT; };
-		3AF14E1A128DE57400623011 /* computed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = computed.h; sourceTree = "<group>"; };
-		3AF14E1B128DE57400623011 /* errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errors.h; sourceTree = "<group>"; };
-		3AF14E1C128DE57400623011 /* fpmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fpmath.h; sourceTree = "<group>"; };
-		3AF14E1D128DE57400623011 /* functypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functypes.h; sourceTree = "<group>"; };
-		3AF14E1E128DE57400623011 /* hint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hint.h; sourceTree = "<group>"; };
-		3AF14E1F128DE57400623011 /* libcss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libcss.h; sourceTree = "<group>"; };
-		3AF14E20128DE57400623011 /* properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = properties.h; sourceTree = "<group>"; };
-		3AF14E21128DE57400623011 /* select.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = select.h; sourceTree = "<group>"; };
-		3AF14E22128DE57400623011 /* stylesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stylesheet.h; sourceTree = "<group>"; };
-		3AF14E23128DE57400623011 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
-		3AF14E25128DE57400623011 /* libwapcaplet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libwapcaplet.h; sourceTree = "<group>"; };
-		3AF14E28128DE57400623011 /* codec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codec.h; sourceTree = "<group>"; };
-		3AF14E29128DE57400623011 /* mibenum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mibenum.h; sourceTree = "<group>"; };
-		3AF14E2A128DE57400623011 /* utf16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf16.h; sourceTree = "<group>"; };
-		3AF14E2B128DE57400623011 /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
-		3AF14E2C128DE57400623011 /* errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errors.h; sourceTree = "<group>"; };
-		3AF14E2D128DE57400623011 /* functypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functypes.h; sourceTree = "<group>"; };
-		3AF14E2F128DE57400623011 /* inputstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputstream.h; sourceTree = "<group>"; };
-		3AF14E30128DE57400623011 /* parserutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parserutils.h; sourceTree = "<group>"; };
-		3AF14E31128DE57400623011 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
-		3AF14E33128DE57400623011 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
-		3AF14E34128DE57400623011 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
-		3AF14E35128DE57400623011 /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector.h; sourceTree = "<group>"; };
 		3AF14E38128DE5CB00623011 /* CSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSS.h; sourceTree = "<group>"; };
 		3AF14E39128DE5CB00623011 /* CSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSS.m; sourceTree = "<group>"; };
 		3AF14E3C128DE73400623011 /* Aliases */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Aliases; path = ../libcss/test/data/Aliases; sourceTree = SOURCE_ROOT; };
@@ -175,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				32DBCF5E0370ADEE00C91783 /* prefix.pch */,
+				3AE5E5641290A18300B17C4F /* internal.h */,
+				3AE5E5651290A18300B17C4F /* internal.m */,
 				3AF14EBE128E015700623011 /* h-objc.h */,
 				3AF14E6B128DE9E300623011 /* css-cf-realloc.h */,
 				3AF14E6C128DE9E300623011 /* css-cf-realloc.m */,
@@ -184,8 +193,18 @@
 				3AF14E39128DE5CB00623011 /* CSS.m */,
 				3AF14EE1128E060600623011 /* NSError-css.h */,
 				3AF14EE2128E060600623011 /* NSError-css.m */,
+				3AE5E7A11290CBC700B17C4F /* NSColor-css.h */,
+				3AE5E7A21290CBC700B17C4F /* NSColor-css.m */,
+				3AE5E53D1290985700B17C4F /* NSString-wapcaplet.h */,
+				3AE5E53E1290985700B17C4F /* NSString-wapcaplet.m */,
+				3AE5E6891290BF3600B17C4F /* CSSSelectHandlerBase.h */,
+				3AE5E68A1290BF3600B17C4F /* CSSSelectHandlerBase.m */,
 				3AF14E65128DE92500623011 /* CSSStylesheet.h */,
 				3AF14E66128DE92500623011 /* CSSStylesheet.m */,
+				3AE5E552129099B900B17C4F /* CSSContext.h */,
+				3AE5E553129099B900B17C4F /* CSSContext.m */,
+				3AE5E5F31290B65600B17C4F /* CSSStyle.h */,
+				3AE5E5F41290B65600B17C4F /* CSSStyle.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -193,82 +212,11 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3AF14E19128DE57400623011 /* libcss */,
-				3AF14E24128DE57400623011 /* libwapcaplet */,
-				3AF14E26128DE57400623011 /* parserutils */,
+				3AE5E5D81290B4BC00B17C4F /* libcss */,
+				3AE5E5FE1290B90400B17C4F /* libwapcaplet */,
+				3AE5E6121290B92100B17C4F /* parserutils */,
 			);
 			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		3AF14E19128DE57400623011 /* libcss */ = {
-			isa = PBXGroup;
-			children = (
-				3AF14E1A128DE57400623011 /* computed.h */,
-				3AF14E1B128DE57400623011 /* errors.h */,
-				3AF14E1C128DE57400623011 /* fpmath.h */,
-				3AF14E1D128DE57400623011 /* functypes.h */,
-				3AF14E1E128DE57400623011 /* hint.h */,
-				3AF14E1F128DE57400623011 /* libcss.h */,
-				3AF14E20128DE57400623011 /* properties.h */,
-				3AF14E21128DE57400623011 /* select.h */,
-				3AF14E22128DE57400623011 /* stylesheet.h */,
-				3AF14E23128DE57400623011 /* types.h */,
-			);
-			name = libcss;
-			path = ../include/libcss;
-			sourceTree = SOURCE_ROOT;
-		};
-		3AF14E24128DE57400623011 /* libwapcaplet */ = {
-			isa = PBXGroup;
-			children = (
-				3AF14E25128DE57400623011 /* libwapcaplet.h */,
-			);
-			name = libwapcaplet;
-			path = ../include/libwapcaplet;
-			sourceTree = SOURCE_ROOT;
-		};
-		3AF14E26128DE57400623011 /* parserutils */ = {
-			isa = PBXGroup;
-			children = (
-				3AF14E27128DE57400623011 /* charset */,
-				3AF14E2C128DE57400623011 /* errors.h */,
-				3AF14E2D128DE57400623011 /* functypes.h */,
-				3AF14E2E128DE57400623011 /* input */,
-				3AF14E30128DE57400623011 /* parserutils.h */,
-				3AF14E31128DE57400623011 /* types.h */,
-				3AF14E32128DE57400623011 /* utils */,
-			);
-			name = parserutils;
-			path = ../include/parserutils;
-			sourceTree = SOURCE_ROOT;
-		};
-		3AF14E27128DE57400623011 /* charset */ = {
-			isa = PBXGroup;
-			children = (
-				3AF14E28128DE57400623011 /* codec.h */,
-				3AF14E29128DE57400623011 /* mibenum.h */,
-				3AF14E2A128DE57400623011 /* utf16.h */,
-				3AF14E2B128DE57400623011 /* utf8.h */,
-			);
-			path = charset;
-			sourceTree = "<group>";
-		};
-		3AF14E2E128DE57400623011 /* input */ = {
-			isa = PBXGroup;
-			children = (
-				3AF14E2F128DE57400623011 /* inputstream.h */,
-			);
-			path = input;
-			sourceTree = "<group>";
-		};
-		3AF14E32128DE57400623011 /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				3AF14E33128DE57400623011 /* buffer.h */,
-				3AF14E34128DE57400623011 /* stack.h */,
-				3AF14E35128DE57400623011 /* vector.h */,
-			);
-			path = utils;
 			sourceTree = "<group>";
 		};
 		3AF14F28128E091000623011 /* example-app */ = {
@@ -291,9 +239,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE5E5E41290B4BC00B17C4F /* libcss in Headers */,
+				3AE5E6011290B90400B17C4F /* libwapcaplet in Headers */,
+				3AE5E6261290B92100B17C4F /* parserutils in Headers */,
 				3AF14E3A128DE5CB00623011 /* CSS.h in Headers */,
+				3AE5E5FD1290B83A00B17C4F /* css-cf-realloc.h in Headers */,
 				3AF14E67128DE92500623011 /* CSSStylesheet.h in Headers */,
 				3AF14EE3128E060600623011 /* NSError-css.h in Headers */,
+				3AE5E53F1290985700B17C4F /* NSString-wapcaplet.h in Headers */,
+				3AE5E554129099B900B17C4F /* CSSContext.h in Headers */,
+				3AE5E5F51290B65600B17C4F /* CSSStyle.h in Headers */,
+				3AE5E68B1290BF3600B17C4F /* CSSSelectHandlerBase.h in Headers */,
+				3AE5E7A31290CBC700B17C4F /* NSColor-css.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +360,12 @@
 				3AF14E6E128DE9E300623011 /* css-cf-realloc.m in Sources */,
 				3AF14E8F128DF5D000623011 /* NSURL-blocks.m in Sources */,
 				3AF14EE4128E060600623011 /* NSError-css.m in Sources */,
+				3AE5E5401290985700B17C4F /* NSString-wapcaplet.m in Sources */,
+				3AE5E555129099B900B17C4F /* CSSContext.m in Sources */,
+				3AE5E5671290A18300B17C4F /* internal.m in Sources */,
+				3AE5E5F61290B65600B17C4F /* CSSStyle.m in Sources */,
+				3AE5E68C1290BF3600B17C4F /* CSSSelectHandlerBase.m in Sources */,
+				3AE5E7A41290CBC700B17C4F /* NSColor-css.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +478,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "example-app/prefix.pch";
+				HEADER_SEARCH_PATHS = "$(BUILD_ROOT)/$(BUILD_STYLE)/CSS.framework/Headers";
 				INFOPLIST_FILE = "example-app/Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -539,6 +503,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "example-app/prefix.pch";
+				HEADER_SEARCH_PATHS = "$(BUILD_ROOT)/$(BUILD_STYLE)/CSS.framework/Headers";
 				INFOPLIST_FILE = "example-app/Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";

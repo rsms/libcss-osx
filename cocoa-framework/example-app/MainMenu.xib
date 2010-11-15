@@ -1345,7 +1345,7 @@
 													<object class="NSTextStorage" key="NSTextStorage">
 														<object class="NSMutableString" key="NSString">
 															<bytes key="NS.bytes">QGltcG9ydCB1cmwoaHR0cDovL2h1bmNoLnNlL3Jlcy9tYWluLmNzcyk7CmJvZHkgeyBmb250LXNpemU6
-IDE5cHQ7IH0KA</bytes>
+IDE5cHQ7IGNvbG9yOnJnYmEoMTgsIDI1NSwgMTkwLCAwLjgpIH0KA</bytes>
 														</object>
 														<object class="NSDictionary" key="NSAttributes">
 															<bool key="EncodedWithXMLCoder">YES</bool>
@@ -3585,7 +3585,7 @@ IDE5cHQ7IH0KA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{{525, 802}, {197, 73}}</string>
-					<string>{{958, 836}, {482, 20}}</string>
+					<string>{{646, 836}, {482, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>{74, 862}</string>

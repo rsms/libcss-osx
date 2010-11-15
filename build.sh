@@ -49,8 +49,7 @@ mkdir -p include
   cp -vfR libparserutils/include/parserutils include/
 [ ! -d include/libwapcaplet ] && \
   cp -vfR libwapcaplet/include/libwapcaplet include/
-[ ! -d include/libcss ] && \
-  cp -vfR libcss/include/libcss include/
+cp -vfR libcss/include/libcss include/
 
 echo '------------------- example1 -------------------'
 

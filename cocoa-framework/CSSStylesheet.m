@@ -1,49 +1,10 @@
 #import "CSSStylesheet.h"
+#import "CSSContext.h"
 #import "NSURL-blocks.h"
 #import "NSError-css.h"
-#import "css-cf-realloc.h"
-#import "h-objc.h"
+#import "NSString-wapcaplet.h"
 
-#include <libcss/libcss.h>
-#include <dispatch/dispatch.h>
-
-
-#define CSS_LOG_ERROR(status, label) \
-  NSLog(@"[CSS.framework] %s => %s", label, css_error_to_string(status))
-
-#define CHECK_CSS_OK(status, label) do { \
-  if (status != CSS_OK) { \
-    CSS_LOG_ERROR(status, label); \
-  } \
-} while (0)
-
-#define CHECK_CSS_OK2(call) do { \
-  css_error __cssstatus = (call); \
-  if (status != CSS_OK) { \
-    fprintf(stderr, "[CSS.framework] %s => %s", #call , \
-            css_error_to_string(status)); \
-  } \
-} while (0)
-
-
-@interface NSString (wapcaplet)
-+ (NSString*)stringWithLWCString:(lwc_string*)str;
-- (lwc_string*)LWCString; // returns a new reference (implies lwc_string_ref)
-@end
-
-@implementation NSString (wapcaplet)
-+ (NSString*)stringWithLWCString:(lwc_string*)str {
-  return [[[NSString alloc] initWithBytes:lwc_string_data(str)
-                                   length:lwc_string_length(str)
-                                 encoding:NSUTF8StringEncoding] autorelease];
-}
-- (lwc_string*)LWCString {
-  NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
-  lwc_string *str = NULL;
-  lwc_intern_string((const char *)data.bytes, data.length, &str);
-  return str;
-}
-@end
+#import "internal.h"
 
 
 static css_error resolve_url(void *pw, const char *base, lwc_string *rel,
@@ -67,7 +28,8 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
 
 @implementation CSSStylesheet
 
-@synthesize url = url_;
+@synthesize url = url_,
+            sheet = sheet_;
 
 
 - (id)initWithURL:(NSURL*)url {
@@ -92,6 +54,16 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
 }
 
 
+- (void)dealloc {
+  css_stylesheet_destroy(sheet_);
+  [super dealloc];
+}
+
+
+#pragma mark -
+#pragma mark Parsing data
+
+
 - (BOOL)appendData:(NSData*)data
              error:(NSError**)outError
        expectsMore:(BOOL*)expectsMore {
@@ -110,24 +82,6 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
 }
 
 // -------------
-
-static dispatch_queue_t gImportQueue_ = NULL;
-
-+ (void)load {
-  NSAutoreleasePool *pool = [NSAutoreleasePool new];
-  gImportQueue_ = dispatch_queue_create("se.hunch.libcss.import", 0);
-  [pool drain];
-}
-
-
-static void queueImport(css_stylesheet *sheet) {
-  dispatch_async(gImportQueue_, ^{
-    lwc_string *url;
-    uint64_t media;
-    css_error error = css_stylesheet_next_pending_import(sheet, &url, &media);
-    assert(error == CSS_OK || error == CSS_INVALID);
-  });
-}
 
 
 - (void)_importNext:(void(^)(NSError*))callback {
@@ -186,6 +140,10 @@ static void queueImport(css_stylesheet *sheet) {
 }
 
 
+#pragma mark -
+#pragma mark Loading external data
+
+
 - (void)loadData:(NSData*)data withCallback:(void(^)(NSError*))callback {
   NSError *err = nil;
   //callback = [callback copy];
@@ -205,6 +163,7 @@ static void queueImport(css_stylesheet *sheet) {
   callback = [callback copy];
 
   return !![url_ fetchWithOnResponseBlock:^(NSURLResponse *response) {
+    // check response
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
       NSInteger status = [(NSHTTPURLResponse*)response statusCode];
       if (status < 200 || status > 299) {
@@ -213,6 +172,7 @@ static void queueImport(css_stylesheet *sheet) {
     }
     return (NSError*)0;
   } onDataBlock:^(NSData *data) {
+    // append received data
     css_error status = css_stylesheet_append_data(sheet_,
                                                   (const uint8_t *)data.bytes,
                                                   data.length);
@@ -220,6 +180,7 @@ static void queueImport(css_stylesheet *sheet) {
       return [NSError CSSErrorFromStatus:status];
     return (NSError*)0;
   } onCompleteBlock:^(NSError *error) {
+    // finalize creation
     if (!error) {
       [self finalizeWithCallback:callback];
     } else {
@@ -230,10 +191,11 @@ static void queueImport(css_stylesheet *sheet) {
 }
 
 
-- (void)dealloc {
-  css_stylesheet_destroy(sheet_);
-  [super dealloc];
-}
+#pragma mark -
+#pragma mark Querying
+
+
+
 
 
 @end

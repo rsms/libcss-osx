@@ -3,3 +3,7 @@
 /libparserutils
 /libwapcaplet
 /cocoa-framework/build
+
+libcss/examples/example1
+libcss/examples/example1.dSYM
+libcss/build-*
