@@ -168,10 +168,12 @@ static css_error ua_default_for_property(void *pw, uint32_t property,
 	UNUSED(pw);
 	if (property == CSS_PROP_COLOR) {
 		hint->data.color = 0x000000ff;
-		hint->status = CSS_COLOR_COLOR;
+		//hint->status = CSS_COLOR_COLOR;
+		hint->status = CSS_COLOR_INHERIT;
 	} else if (property == CSS_PROP_FONT_FAMILY) {
 		hint->data.strings = NULL;
-		hint->status = CSS_FONT_FAMILY_SANS_SERIF;
+		//hint->status = CSS_FONT_FAMILY_SANS_SERIF;
+    hint->status = CSS_FONT_FAMILY_INHERIT;
 	} else if (property == CSS_PROP_QUOTES) {
 		hint->data.strings = NULL;
 		hint->status = CSS_QUOTES_NONE;
