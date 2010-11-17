@@ -12,7 +12,6 @@ static css_error resolve_url(void *pw, const char *base, lwc_string *rel,
   CSSStylesheet *self = (CSSStylesheet*)pw;
   NSString *rels = [NSString stringWithLWCString:rel];
   NSURL *url = [NSURL URLWithString:rels relativeToURL:self.url];
-  NSLog(@"resolve_url('%@') => %@", rels, url.absoluteString);
   *abs = url.absoluteString.LWCString;
   return CSS_OK;
 }
