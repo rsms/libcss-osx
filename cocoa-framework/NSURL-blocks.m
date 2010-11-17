@@ -8,15 +8,24 @@
       onCompleteBlock:(HURLOnCompleteBlock)_onComplete
              delegate:(id)delegate
      startImmediately:(BOOL)startImmediately {
-  self = [self initWithRequest:request
+  self = [super initWithRequest:request
                       delegate:delegate
-              startImmediately:startImmediately];
+              startImmediately:NO];
   if (self) {
     if (_onResponse) onResponse = [_onResponse copy];
     if (_onData) onData = [_onData copy];
     if (_onComplete) onComplete = [_onComplete copy];
+    if (startImmediately) [self start];
   }
   return self;
+}
+
+
+- (void)start {
+  // schedule in NSDefaultRunLoopMode to support multithreading
+  [self scheduleInRunLoop:[NSRunLoop currentRunLoop]
+                  forMode:NSDefaultRunLoopMode];
+  [super start];
 }
 
 
@@ -82,9 +91,6 @@
   assert([c isKindOfClass:[HURLConnection class]]);
   if (c->onComplete) c->onComplete(error);
   [c release];
-  //NSLog(@"Connection failed! Error - %@ %@",
-  //      [error localizedDescription],
-  //      [[error userInfo] objectForKey:NSErrorFailingURLStringErrorKey]);
 }
 
 
