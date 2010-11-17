@@ -1,8 +1,10 @@
 
-#define MAKE_EXC(_name, _reason) \
-  [NSException exceptionWithName:(_name) reason:(_reason) userInfo:nil]
+#define MAKE_EXC(_name, ... ) \
+  [NSException exceptionWithName:(_name) \
+   reason:[NSString stringWithFormat:__VA_ARGS__] userInfo:nil]
 
-#define THROW_EXC(_name, _reason) [MAKE_EXC(_name, _reason) raise]
+#define THROW_EXC(_name, ... ) \
+  [NSException raise:(_name) format:__VA_ARGS__]
 
 #define CSS_LOG_ERROR(status, label) \
   NSLog(@"[CSS.framework] %s => %s", label, css_error_to_string(status))
