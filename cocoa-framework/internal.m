@@ -2,6 +2,10 @@
 
 NSException *CSSCheck2(css_error status) {
   if (status != CSS_OK) {
+    #if !NDEBUG
+    NSLog(@"[CSS.framework debug] error code %d '%s' -- %@",
+          status, css_error_to_string(status), [NSThread callStackSymbols]);
+    #endif
     if (status == CSS_BADPARM) {
       return MAKE_EXC(NSInvalidArgumentException, @"CSS.framework: %s",
                       css_error_to_string(status));

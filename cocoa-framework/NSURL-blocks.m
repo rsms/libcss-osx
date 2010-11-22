@@ -1,11 +1,11 @@
 #import "NSURL-blocks.h"
 
-@implementation HURLConnection
+@implementation CSSURLConnection
 
 - (id)initWithRequest:(NSURLRequest*)request
-      onResponseBlock:(HURLOnResponseBlock)_onResponse
-          onDataBlock:(HURLOnDataBlock)_onData
-      onCompleteBlock:(HURLOnCompleteBlock)_onComplete
+      onResponseBlock:(CSSURLOnResponseBlock)_onResponse
+          onDataBlock:(CSSURLOnDataBlock)_onData
+      onCompleteBlock:(CSSURLOnCompleteBlock)_onComplete
              delegate:(id)delegate
      startImmediately:(BOOL)startImmediately {
   self = [super initWithRequest:request
@@ -39,66 +39,66 @@
 @end
 
 
+@interface CSSURLConnectionDelegate : NSObject {}
+@end
+@implementation CSSURLConnectionDelegate
 
-@implementation NSURL (fetch)
+- (void)_onComplete:(CSSURLConnection*)c error:(NSError*)err cancel:(BOOL)cancel {
+  if (cancel)
+    [c cancel];
+  if (c->onComplete)
+    c->onComplete(err);
+  [c release];
+  [self release];
+}
+
+- (void)connection:(CSSURLConnection*)c didReceiveResponse:(NSURLResponse *)re {
+  assert([c isKindOfClass:[CSSURLConnection class]]);
+  if (c->onResponse) {
+    NSError *error = c->onResponse(re);
+    if (error) [self _onComplete:c error:error cancel:YES];
+  }
+}
+
+- (void)connection:(CSSURLConnection *)c didReceiveData:(NSData *)data {
+  assert([c isKindOfClass:[CSSURLConnection class]]);
+  if (c->onData) {
+    NSError *error = c->onData(data);
+    if (error) [self _onComplete:c error:error cancel:YES];
+  }
+}
+
+- (void)connection:(CSSURLConnection *)c didFailWithError:(NSError *)error {
+  assert([c isKindOfClass:[CSSURLConnection class]]);
+  [self _onComplete:c error:error cancel:NO];
+}
+
+- (void)connectionDidFinishLoading:(CSSURLConnection *)c {
+  assert([c isKindOfClass:[CSSURLConnection class]]);
+  [self _onComplete:c error:nil cancel:NO];
+}
+
+@end
 
 
-- (HURLConnection*)fetchWithOnResponseBlock:(HURLOnResponseBlock)onResponse
-                                onDataBlock:(HURLOnDataBlock)onData
-                            onCompleteBlock:(HURLOnCompleteBlock)onComplete {
+
+@implementation NSURL (blocks_CSS)
+
+- (CSSURLConnection*)fetchCSSWithOnResponseBlock:(CSSURLOnResponseBlock)onResponse
+                                     onDataBlock:(CSSURLOnDataBlock)onData
+                                 onCompleteBlock:(CSSURLOnCompleteBlock)onComplete {
   NSURLRequest *req = 
       [NSURLRequest requestWithURL:self
                        cachePolicy:NSURLRequestUseProtocolCachePolicy
                    timeoutInterval:60.0];
-  HURLConnection *conn =
-      [[HURLConnection alloc] initWithRequest:req
+  CSSURLConnection *conn =
+      [[CSSURLConnection alloc] initWithRequest:req
                               onResponseBlock:onResponse
                                   onDataBlock:onData
                               onCompleteBlock:onComplete
-                                     delegate:self
+                                     delegate:[CSSURLConnectionDelegate new]
                              startImmediately:YES];
   return conn;
 }
-
-
-- (void)connection:(HURLConnection *)c didReceiveResponse:(NSURLResponse *)re {
-  assert([c isKindOfClass:[HURLConnection class]]);
-  if (c->onResponse) {
-    NSError *error = c->onResponse(re);
-    if (error) {
-      [c cancel];
-      if (c->onComplete) c->onComplete(error);
-      [c release];
-    }
-  }
-}
-
-
-- (void)connection:(HURLConnection *)c didReceiveData:(NSData *)data {
-  assert([c isKindOfClass:[HURLConnection class]]);
-  if (c->onData) {
-    NSError *error = c->onData(data);
-    if (error) {
-      [c cancel];
-      if (c->onComplete) c->onComplete(error);
-      [c release];
-    }
-  }
-}
-
-
-- (void)connection:(HURLConnection *)c didFailWithError:(NSError *)error {
-  assert([c isKindOfClass:[HURLConnection class]]);
-  if (c->onComplete) c->onComplete(error);
-  [c release];
-}
-
-
-- (void)connectionDidFinishLoading:(HURLConnection *)c {
-  assert([c isKindOfClass:[HURLConnection class]]);
-  if (c->onComplete) c->onComplete(nil);
-  [c release];
-}
-
 
 @end

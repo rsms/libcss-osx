@@ -214,4 +214,9 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
   return names;
 }
 
+
+// text
+
+- (int)textDecoration { return css_computed_text_decoration(style_); }
+
 @end

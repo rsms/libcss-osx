@@ -161,7 +161,7 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
   assert(callback != nil);
   callback = [callback copy];
 
-  return !![url_ fetchWithOnResponseBlock:^(NSURLResponse *response) {
+  return !![url_ fetchCSSWithOnResponseBlock:^(NSURLResponse *response) {
     // check response
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
       NSInteger status = [(NSHTTPURLResponse*)response statusCode];

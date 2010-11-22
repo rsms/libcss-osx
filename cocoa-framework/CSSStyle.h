@@ -44,4 +44,8 @@
 @property(readonly, nonatomic) NSArray
     *fontNames; // nil means "inherit"
 
+// text
+@property(readonly, nonatomic) int
+    textDecoration; // CSS_TEXT_DECORATION_UNDERLINE, ...
+
 @end
