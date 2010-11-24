@@ -190,11 +190,10 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
 }
 
 
-#pragma mark -
-#pragma mark Querying
-
-
-
+- (NSString*)description {
+  return [NSString stringWithFormat:@"<%@@%p url=%@>",
+      NSStringFromClass([self class]), self, url_];
+}
 
 
 @end

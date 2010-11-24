@@ -129,10 +129,15 @@ inline static CSSStylesheet *_getCSSStylesheet(const css_stylesheet *sheet) {
 }
 
 
-#pragma mark -
-#pragma mark Selecting
-
-
+- (NSString*)description {
+  NSMutableArray *stylesheets = [NSMutableArray array];
+  for (CSSStylesheet *stylesheet in self) {
+    [stylesheets addObject:[stylesheet description]];
+  }
+  return [NSString stringWithFormat:@"<%@@%p [%@]>",
+      NSStringFromClass([self class]), self,
+      [stylesheets componentsJoinedByString:@", "]];
+}
 
 
 @end
