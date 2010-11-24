@@ -75,7 +75,7 @@ inline static CSSStylesheet *_getCSSStylesheet(const css_stylesheet *sheet) {
 
 
 - (CSSStylesheet*)stylesheetAtIndex:(NSUInteger)index {
-  css_stylesheet *sheet;
+  css_stylesheet *sheet = NULL;
   if (CSSCheck(css_select_ctx_get_sheet(ctx_, (uint32_t)index,
                                         (const css_stylesheet **)&sheet))) {
     return _getCSSStylesheet(sheet);
@@ -117,7 +117,7 @@ inline static CSSStylesheet *_getCSSStylesheet(const css_stylesheet *sheet) {
   CSSCheck(css_select_ctx_count_sheets(ctx_, &totalCount));
   
   NSUInteger fetchIndex = 0;
-  while (state->state < totalCount && fetchIndex < fetchCount) {
+  while (state->state+fetchIndex < totalCount && fetchIndex < fetchCount) {
     stackbuf[fetchIndex++] = [self stylesheetAtIndex:state->state + fetchIndex];
   }
   
