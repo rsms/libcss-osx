@@ -157,10 +157,22 @@ static css_error node_is_lang(void *pw, void *n, lwc_string *lang,
 	return CSS_OK;
 }
 
+// "base" value for property (inherit for all properties)
 static css_error node_presentational_hint(void *pw, void *node,
                                           uint32_t property, css_hint *hint) {
 	UNUSED(pw); UNUSED(node); UNUSED(property); UNUSED(hint);
-	return CSS_PROPERTY_NOT_SET;
+  // a bit nasty: all *_INHERIT flags are 0, so simply set this to 0
+  hint->status = 0;
+  /*switch (property) {
+    case CSS_PROP_COLOR:
+    case CSS_PROP_BACKGROUND_COLOR:
+      hint->status = CSS_COLOR_INHERIT; break;
+    case CSS_PROP_FONT_FAMILY:
+      hint->status = CSS_FONT_FAMILY_INHERIT; break;
+    default:
+      return CSS_PROPERTY_NOT_SET;
+  }*/
+	return CSS_OK;
 }
 
 static css_error ua_default_for_property(void *pw, uint32_t property,
@@ -168,16 +180,13 @@ static css_error ua_default_for_property(void *pw, uint32_t property,
 	UNUSED(pw);
 	if (property == CSS_PROP_COLOR) {
 		hint->data.color = 0x000000ff;
-		//hint->status = CSS_COLOR_COLOR;
-		hint->status = CSS_COLOR_INHERIT;
+		hint->status = CSS_COLOR_COLOR;
 	} else if (property == CSS_PROP_BACKGROUND_COLOR) {
 		hint->data.color = 0xffffffff;
-		//hint->status = CSS_COLOR_COLOR;
-		hint->status = CSS_COLOR_INHERIT;
+		hint->status = CSS_COLOR_COLOR;
 	} else if (property == CSS_PROP_FONT_FAMILY) {
 		hint->data.strings = NULL;
-		//hint->status = CSS_FONT_FAMILY_SANS_SERIF;
-    hint->status = CSS_FONT_FAMILY_INHERIT;
+		hint->status = CSS_FONT_FAMILY_SANS_SERIF;
 	} else if (property == CSS_PROP_QUOTES) {
 		hint->data.strings = NULL;
 		hint->status = CSS_QUOTES_NONE;
