@@ -115,6 +115,29 @@ SYNTHESIZE_COLOR(borderBottomColor, border_bottom_color)
 SYNTHESIZE_COLOR(borderLeftColor, border_left_color)
 
 
+// Border widths
+
+  // TODO: convert non-pixel values to pixels
+#define SYNTHESIZE_BORDER_WIDTH(name, direction) \
+- (CGFloat)name { \
+  css_fixed value; \
+  css_unit unit; \
+	uint8_t r = css_computed_border_##direction##_width(style_, &value, &unit); \
+	switch (r) { \
+    case CSS_BORDER_WIDTH_THIN: return 0.5; \
+    case CSS_BORDER_WIDTH_MEDIUM: return 1.0; \
+    case CSS_BORDER_WIDTH_THICK: return 3.0; \
+    case CSS_BORDER_WIDTH_WIDTH: return FIXTOFLT(value); \
+    default: return 0.0; \
+	} \
+}
+
+SYNTHESIZE_BORDER_WIDTH(borderLeftWidth, left)
+SYNTHESIZE_BORDER_WIDTH(borderTopWidth, top)
+SYNTHESIZE_BORDER_WIDTH(borderRightWidth, right)
+SYNTHESIZE_BORDER_WIDTH(borderBottomWidth, bottom)
+
+
 // Font
 
 - (int)fontWeight { return css_computed_font_weight(style_); }
@@ -190,7 +213,7 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
   return points;
 }
 
-- (NSArray*)fontNames {
+- (NSArray*)fontFamilyNames {
   //lwc_string **names style->font_family
   NSMutableArray *names = nil;
   lwc_string **string_list = NULL;
@@ -212,6 +235,72 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
     }
   }
   return names;
+}
+
+
+- (NSFont*)font {
+  NSFontTraitMask fontTraitMask = 0;
+  
+  // retrieve family names
+  lwc_string **familyNames = NULL;
+  uint8_t familyClass = css_computed_font_family(style_, &familyNames);
+  if (familyClass == CSS_FONT_FAMILY_INHERIT)
+    return nil;
+  
+  // font style
+  switch (self.fontStyle) {
+    case CSS_FONT_STYLE_ITALIC:
+    case CSS_FONT_STYLE_OBLIQUE:
+      fontTraitMask |= NSItalicFontMask;
+      break;
+  }
+  
+  // font variant
+  if (self.fontVariant == CSS_FONT_VARIANT_SMALL_CAPS)
+    fontTraitMask |= NSSmallCapsFontMask;
+  
+  // font weight (currently only "bold" is supported)
+  switch (self.fontWeight) {
+    case CSS_FONT_WEIGHT_BOLD:
+    case CSS_FONT_WEIGHT_BOLDER:
+      fontTraitMask |= NSBoldFontMask;
+      break;
+  }
+
+  NSFontManager *fontManager = [NSFontManager sharedFontManager];
+  NSFont *font = nil;
+  CGFloat fontSize = self.fontSize;
+
+  // try family names in order and stop at first found
+  if (familyNames) {
+    while (*familyNames != NULL) {
+      NSString *familyName = [NSString stringWithLWCString:*(familyNames++)];
+      font = [fontManager fontWithFamily:familyName
+                                  traits:fontTraitMask
+                                  weight:0
+                                    size:fontSize];
+      if (font)
+        break;
+    }
+  }
+  
+  // try symbolic class
+  if (!font) {
+    NSString *familyName = @"Lucida Grande";
+    switch (familyClass) {
+      case CSS_FONT_FAMILY_SERIF: familyName = @"Times"; break;
+      case CSS_FONT_FAMILY_SANS_SERIF: familyName = @"Helvetica"; break;
+      case CSS_FONT_FAMILY_CURSIVE: familyName = @"Apple Chancery"; break;
+      case CSS_FONT_FAMILY_FANTASY: familyName = @"Herculanum"; break;
+      case CSS_FONT_FAMILY_MONOSPACE: familyName = @"Menlo"; break;
+    }
+    font = [fontManager fontWithFamily:familyName
+                                traits:fontTraitMask
+                                weight:0
+                                  size:fontSize];
+  }
+  
+  return font;
 }
 
 

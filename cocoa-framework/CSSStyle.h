@@ -34,6 +34,13 @@
     *borderBottomColor,
     *borderLeftColor;
 
+// Border width
+@property(readonly, nonatomic) CGFloat
+    borderLeftWidth,
+    borderTopWidth,
+    borderRightWidth,
+    borderBottomWidth;
+
 // Font
 @property(readonly, nonatomic) int
     fontWeight, // 100, 400, ...
@@ -42,7 +49,9 @@
 @property(readonly, nonatomic) CGFloat
     fontSize; // in points
 @property(readonly, nonatomic) NSArray
-    *fontNames; // nil means "inherit"
+    *fontFamilyNames; // nil means "inherit"
+@property(readonly, nonatomic) NSFont
+    *font; // nil means "inherit" or no font family could be found
 
 // text
 @property(readonly, nonatomic) int
