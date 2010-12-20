@@ -67,6 +67,7 @@ static CGFloat _UIScaleFactor() {
   NSException *e =
       CSSCheck2(css_computed_style_create(&css_cf_realloc, 0, &style_));
 	if (e) {
+    style_ = NULL;
     [self release];
     [e raise];
     return nil;
