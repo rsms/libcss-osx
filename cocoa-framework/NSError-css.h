@@ -2,6 +2,6 @@
 extern NSString *CSSErrorDomain;
 
 @interface NSError (CSS)
-+ (NSError*)CSSErrorFromStatus:(int)status;
-+ (NSError*)HTTPErrorWithStatusCode:(int)status;
++ (NSError*)libcssErrorFromStatus:(int)status;
++ (NSError*)libcssHTTPErrorWithStatusCode:(int)status;
 @end

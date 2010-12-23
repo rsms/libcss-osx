@@ -71,7 +71,7 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
                                                 (const uint8_t *)data.bytes,
                                                 data.length);
   if (status != CSS_OK && status != CSS_NEEDDATA) {
-    *outError = [NSError CSSErrorFromStatus:status];
+    *outError = [NSError libcssErrorFromStatus:status];
     if (expectsMore != nil) *expectsMore = NO;
     return NO;
   } else if (expectsMore != nil) {
@@ -130,7 +130,7 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
   if (status == CSS_OK) {
     callback(nil);
   } else if (status != CSS_IMPORTS_PENDING) {
-    callback([NSError CSSErrorFromStatus:status]);
+    callback([NSError libcssErrorFromStatus:status]);
   } else {
     // handle @imports
     [self _importNext:callback];
@@ -166,7 +166,7 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
       NSInteger status = [(NSHTTPURLResponse*)response statusCode];
       if (status < 200 || status > 299) {
-        return [NSError HTTPErrorWithStatusCode:status];
+        return [NSError libcssHTTPErrorWithStatusCode:status];
       }
     }
     return (NSError*)0;
@@ -176,7 +176,7 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
                                                   (const uint8_t *)data.bytes,
                                                   data.length);
     if (status != CSS_OK && status != CSS_NEEDDATA)
-      return [NSError CSSErrorFromStatus:status];
+      return [NSError libcssErrorFromStatus:status];
     return (NSError*)0;
   } onCompleteBlock:^(NSError *error) {
     // finalize creation

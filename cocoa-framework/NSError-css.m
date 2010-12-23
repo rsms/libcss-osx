@@ -4,7 +4,7 @@ NSString *CSSErrorDomain = @"CSS";
 
 @implementation NSError (CSS)
 
-+ (NSError*)CSSErrorFromStatus:(int)status {
++ (NSError*)libcssErrorFromStatus:(int)status {
   NSString *msg = [NSString stringWithUTF8String:css_error_to_string(status)];
   NSDictionary *info =
       [NSDictionary dictionaryWithObject:msg
@@ -12,7 +12,7 @@ NSString *CSSErrorDomain = @"CSS";
   return [NSError errorWithDomain:CSSErrorDomain code:status userInfo:info];
 }
 
-+ (NSError*)HTTPErrorWithStatusCode:(int)status {
++ (NSError*)libcssHTTPErrorWithStatusCode:(int)status {
   NSString *msg = [NSHTTPURLResponse localizedStringForStatusCode:status];
   NSDictionary *info =
       [NSDictionary dictionaryWithObject:msg forKey:NSLocalizedDescriptionKey];
