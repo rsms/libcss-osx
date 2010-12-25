@@ -57,4 +57,8 @@
 @property(readonly, nonatomic) int
     textDecoration; // CSS_TEXT_DECORATION_UNDERLINE, ...
 
+// cursor
+@property(readonly, nonatomic) NSCursor *cursor;
+- (NSCursor*)cursorPassingURLs:(NSArray**)cursorURLs;
+
 @end

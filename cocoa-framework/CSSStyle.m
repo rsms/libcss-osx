@@ -199,6 +199,12 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
 	case CSS_UNIT_KHZ:
 		// TODO: kHz
 		break;
+	case CSS_UNIT_EX:
+		// TODO: ex
+		break;
+	case CSS_UNIT_EM:
+		// TODO: em
+		break;
 	}
   return FIXTOFLT(value); // FIXME
 }
@@ -308,5 +314,50 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
 // text
 
 - (int)textDecoration { return css_computed_text_decoration(style_); }
+
+
+// cursor
+
+- (NSCursor*)cursor {
+  return [self cursorPassingURLs:nil];
+}
+
+- (NSCursor*)cursorPassingURLs:(NSArray**)cursorURLs {
+  lwc_string **urls = NULL;
+  uint8_t cursorType = css_computed_cursor(style_, &urls);
+
+  // pass URLs
+  if (cursorURLs) {
+    *cursorURLs = [NSMutableArray array];
+    if (urls != NULL) {
+      while (*urls != NULL) {
+        NSString *name = [NSString stringWithLWCString:*(urls++)];
+        [(NSMutableArray*)cursorURLs addObject:name];
+      }
+    }
+  }
+
+  // type
+	switch (cursorType) {
+    case CSS_CURSOR_AUTO: return nil;
+    case CSS_CURSOR_CROSSHAIR: return [NSCursor crosshairCursor];
+    case CSS_CURSOR_DEFAULT: return nil;
+    case CSS_CURSOR_POINTER: return [NSCursor pointingHandCursor];
+    case CSS_CURSOR_MOVE: return [NSCursor openHandCursor];
+    case CSS_CURSOR_E_RESIZE: return [NSCursor resizeRightCursor];
+    case CSS_CURSOR_NE_RESIZE: return nil; // TODO
+    case CSS_CURSOR_NW_RESIZE: return nil; // TODO
+    case CSS_CURSOR_N_RESIZE: return [NSCursor resizeUpCursor];
+    case CSS_CURSOR_SE_RESIZE: return nil; // TODO
+    case CSS_CURSOR_SW_RESIZE: return nil; // TODO
+    case CSS_CURSOR_S_RESIZE: return [NSCursor resizeDownCursor];
+    case CSS_CURSOR_W_RESIZE: return [NSCursor resizeLeftCursor];
+    case CSS_CURSOR_TEXT: return [NSCursor IBeamCursor];
+    case CSS_CURSOR_WAIT: return nil; // TODO
+    case CSS_CURSOR_HELP: return nil; // TODO
+    case CSS_CURSOR_PROGRESS: return nil; // TODO
+	}
+  return nil;
+}
 
 @end
