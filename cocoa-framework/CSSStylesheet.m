@@ -42,6 +42,7 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
       css_stylesheet_create(CSS_LEVEL_DEFAULT, "UTF-8", urlpch, NULL,
                             allow_quirks, inline_style, &css_cf_realloc, NULL,
                             &dummy_url_resolver, self,
+                            NULL, NULL, // TODO: css_import_notification_fn
                             &sheet_);
 	if (status != CSS_OK) {
     CSS_LOG_ERROR(status, "css_stylesheet_create");

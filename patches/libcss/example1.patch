@@ -1,0 +1,64 @@
+Index: examples/example1.c
+===================================================================
+--- examples/example1.c	(revision 11123)
++++ examples/example1.c	(working copy)
+@@ -111,7 +111,7 @@
+ 
+ int main(int argc, char **argv)
+ {
+-	lwc_error lwc_code;
++	//lwc_error lwc_code;
+ 	css_error code;
+ 	css_stylesheet *sheet;
+ 	size_t size;
+@@ -125,22 +125,26 @@
+ 	UNUSED(argc);
+ 	UNUSED(argv);
+ 
+-	/* initialise libwapcaplet (required by libcss) */
+-	lwc_code = lwc_initialise(myrealloc, NULL, 0);
+-	if (lwc_code != lwc_error_ok) {
+-		fprintf(stderr, "lwc_initialise: %i\n", lwc_code);
+-		return 1;
+-	}
+-
+ 	/* initialise libcss */
+-	code = css_initialise("../test/data/Aliases", myrealloc, 0);
+-	if (code != CSS_OK)
+-		die("css_initialise", code);
++	//code = css_initialise("../test/data/Aliases", myrealloc, 0);
++	//if (code != CSS_OK)
++//		die("css_initialise", code);
+ 
+ 
+ 	/* create a stylesheet */
++	/*
++	css_error css_stylesheet_create(
++	  css_language_level level,
++		const char *charset, const char *url, const char *title,
++		bool allow_quirks, bool inline_style,
++		css_allocator_fn alloc, void *alloc_pw,
++		css_url_resolution_fn resolve, void *resolve_pw,
++		css_import_notification_fn, void *import_pw,
++		css_stylesheet **stylesheet);
++	*/
++	
+ 	code = css_stylesheet_create(CSS_LEVEL_DEFAULT, "UTF-8", "", NULL,
+-			false, false, myrealloc, 0, resolve_url, 0, &sheet);
++			false, false, myrealloc, NULL, resolve_url, NULL, NULL, NULL, &sheet);
+ 	if (code != CSS_OK)
+ 		die("css_stylesheet_create", code);
+ 	code = css_stylesheet_size(sheet, &size);
+@@ -219,9 +223,9 @@
+ 	code = css_stylesheet_destroy(sheet);
+ 	if (code != CSS_OK)
+ 		die("css_stylesheet_destroy", code);
+-	code = css_finalise(myrealloc, 0);
+-	if (code != CSS_OK)
+-		die("css_finalise", code);
++	//code = css_finalise(myrealloc, 0);
++	//if (code != CSS_OK)
++	//	die("css_finalise", code);
+ 
+ 
+ 	return 0;

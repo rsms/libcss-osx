@@ -27,7 +27,6 @@
 		3AF14E10128DE50300623011 /* libwapcaplet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF14E0D128DE50300623011 /* libwapcaplet.a */; };
 		3AF14E3A128DE5CB00623011 /* CSS.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AF14E38128DE5CB00623011 /* CSS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AF14E3B128DE5CB00623011 /* CSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14E39128DE5CB00623011 /* CSS.m */; };
-		3AF14E3D128DE73400623011 /* Aliases in Resources */ = {isa = PBXBuildFile; fileRef = 3AF14E3C128DE73400623011 /* Aliases */; };
 		3AF14E67128DE92500623011 /* CSSStylesheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AF14E65128DE92500623011 /* CSSStylesheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AF14E68128DE92500623011 /* CSSStylesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14E66128DE92500623011 /* CSSStylesheet.m */; };
 		3AF14E6E128DE9E300623011 /* css-cf-realloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF14E6C128DE9E300623011 /* css-cf-realloc.m */; };
@@ -91,7 +90,6 @@
 		3AF14E0D128DE50300623011 /* libwapcaplet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwapcaplet.a; path = ../lib/libwapcaplet.a; sourceTree = SOURCE_ROOT; };
 		3AF14E38128DE5CB00623011 /* CSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSS.h; sourceTree = "<group>"; };
 		3AF14E39128DE5CB00623011 /* CSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSS.m; sourceTree = "<group>"; };
-		3AF14E3C128DE73400623011 /* Aliases */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Aliases; path = ../libcss/test/data/Aliases; sourceTree = SOURCE_ROOT; };
 		3AF14E65128DE92500623011 /* CSSStylesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSStylesheet.h; sourceTree = "<group>"; };
 		3AF14E66128DE92500623011 /* CSSStylesheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSSStylesheet.m; sourceTree = "<group>"; };
 		3AF14E6B128DE9E300623011 /* css-cf-realloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "css-cf-realloc.h"; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 		089C1665FE841158C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3AF14E3C128DE73400623011 /* Aliases */,
 				8DC2EF5A0486A6940098B216 /* Info.plist */,
 				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
 			);
@@ -335,7 +332,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
-				3AF14E3D128DE73400623011 /* Aliases in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

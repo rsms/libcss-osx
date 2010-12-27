@@ -1,5 +1,25 @@
 #!/bin/bash
 cd "$(dirname "$0")"
+
+# --------------------------------------------------------------------------
+# checkout
+
+NETSURF_SVN_REV=11123
+if [ ! -d libparserutils ]; then
+  svn co svn://svn.netsurf-browser.org/trunk/libparserutils@$NETSURF_SVN_REV
+fi
+if [ ! -d libwapcaplet ]; then
+  svn co svn://svn.netsurf-browser.org/trunk/libwapcaplet@$NETSURF_SVN_REV
+fi
+if [ ! -d libcss ]; then
+  svn checkout svn://svn.netsurf-browser.org/trunk/libcss@$NETSURF_SVN_REV
+  
+fi
+
+exit 0
+
+# --------------------------------------------------------------------------
+
 export PKG_CONFIG_PATH="$(pwd)/libparserutils:$(pwd)/libwapcaplet:$PKG_CONFIG_PATH"
 deps_changed=0
 
@@ -47,16 +67,19 @@ lipo -info lib/libcss.a
 
 echo '------------------- headers -------------------'
 mkdir -p include
-[ ! -d include/parserutils ] && \
-  cp -vfR libparserutils/include/parserutils include/
-[ ! -d include/libwapcaplet ] && \
-  cp -vfR libwapcaplet/include/libwapcaplet include/
-cp -vfR libcss/include/libcss include/
+rm -rf include/parserutils
+cp -fR libparserutils/include/parserutils include/
+rm -rf include/libwapcaplet
+cp -fR libwapcaplet/include/libwapcaplet include/
+rm -rf include/libcss
+cp -fR libcss/include/libcss include/
+find include -name .svn -type d -exec rm -rf '{}' ';' 2>/dev/null
 
 echo '------------------- example1 -------------------'
 
 cd libcss/examples
-gcc -g -W -Wall -o example1 example1.c -lcss -lparserutils -lwapcaplet -I../../include -L../../lib
+gcc -g -W -Wall -o example1 example1.c \
+  -lcss -lparserutils -lwapcaplet -L../../lib -I../../include -L../../lib
 ./example1
 
 echo '------------------- CSS.framework -------------------'
