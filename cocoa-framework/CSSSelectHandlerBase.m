@@ -179,7 +179,7 @@ static css_error ua_default_for_property(void *pw, uint32_t property,
                                          css_hint *hint) {
 	UNUSED(pw);
 	if (property == CSS_PROP_COLOR) {
-		hint->data.color = 0x000000ff;
+		hint->data.color = 0xff000000;
 		hint->status = CSS_COLOR_COLOR;
 	} else if (property == CSS_PROP_BACKGROUND_COLOR) {
 		hint->data.color = 0xffffffff;
