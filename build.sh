@@ -13,10 +13,11 @@ if [ ! -d libwapcaplet ]; then
 fi
 if [ ! -d libcss ]; then
   svn checkout svn://svn.netsurf-browser.org/trunk/libcss@$NETSURF_SVN_REV
-  
+  # apply patches
+  for patchfile in patches/libcss/*.patch; do
+    patch -p0 -d libcss --backup-if-mismatch -i "../$patchfile"
+  done
 fi
-
-exit 0
 
 # --------------------------------------------------------------------------
 
@@ -67,19 +68,27 @@ lipo -info lib/libcss.a
 
 echo '------------------- headers -------------------'
 mkdir -p include
+
+echo cp -fR libparserutils/include/parserutils include/
 rm -rf include/parserutils
 cp -fR libparserutils/include/parserutils include/
+
+echo cp -fR libwapcaplet/include/libwapcaplet include/
 rm -rf include/libwapcaplet
 cp -fR libwapcaplet/include/libwapcaplet include/
+
+echo cp -fR libcss/include/libcss include/
 rm -rf include/libcss
 cp -fR libcss/include/libcss include/
+
 find include -name .svn -type d -exec rm -rf '{}' ';' 2>/dev/null
 
 echo '------------------- example1 -------------------'
 
 cd libcss/examples
 gcc -g -W -Wall -o example1 example1.c \
-  -lcss -lparserutils -lwapcaplet -L../../lib -I../../include -L../../lib
+  -lcss -lparserutils -lwapcaplet -L../../lib -I../../include -L../../lib \
+  || exit $?
 ./example1
 
 echo '------------------- CSS.framework -------------------'
@@ -91,6 +100,8 @@ xcodebuild -project CSS.xcodeproj \
            -configuration Release \
            build \
            > /dev/null || exit $?
+
+rm -rf ../lib/CSS.framework
 cp -Rp build/Release/CSS.framework ../lib/CSS.framework
 
 echo "done"

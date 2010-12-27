@@ -5,11 +5,9 @@ universal binaries.
 
 There's also an ongoing project building a Cocoa framework (see the `cocoa-framework` subdirectory).
 
-## Upstream sources
+## Building
 
-    svn://svn.netsurf-browser.org/trunk/libcss          libcss
-    svn://svn.netsurf-browser.org/trunk/libparserutils  libparserutils
-    svn://svn.netsurf-browser.org/trunk/libwapcaplet    libwapcaplet
+    ./build.sh
 
 ## License
 
