@@ -350,8 +350,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "../build.sh || exit $?\nexit 0";
-			showEnvVarsInLog = 0;
+			shellScript = "if [ ! -f ../lib/libcss.a ]; then\n  ../build.sh || exit $?\nfi\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
