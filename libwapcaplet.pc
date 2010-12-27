@@ -1,0 +1,10 @@
+prefix=../libwapcaplet
+exec_prefix=../libwapcaplet
+libdir=../lib
+includedir=../libwapcaplet/include
+
+Name: libwapcaplet
+Description: String internalisation dictionary
+Version: 1.0
+Libs: -L${libdir} -lwapcaplet
+Cflags: -I${includedir}

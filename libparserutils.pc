@@ -1,0 +1,10 @@
+prefix=../libparserutils
+exec_prefix=../libparserutils
+libdir=../lib
+includedir=../libparserutils/include
+
+Name: libparserutils
+Description: Utility library for facilitating parser development
+Version: 1.0
+Libs: -L${libdir} -lparserutils
+Cflags: -I${includedir}

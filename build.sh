@@ -1,5 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")"
+export PKG_CONFIG_PATH="$(pwd)/libparserutils:$(pwd)/libwapcaplet:$PKG_CONFIG_PATH"
 deps_changed=0
 
 function isuptodate {
@@ -11,7 +12,6 @@ function isuptodate {
 function makeuniversal {
   origd="$(pwd)"
   cd $1
-  #rm -rf build-*
   CFLAGS="$CFLAGS -arch i386 $3" make TARGET=i386 || exit $?
   CFLAGS="$CFLAGS -arch x86_64 $3" make TARGET=x86_64 || exit $?
   rm -f ../lib/$2
@@ -29,10 +29,12 @@ function makeuniversal_ifdirty {
 mkdir -p lib
 
 echo '------------------- libwapcaplet -------------------'
+ln -fs ../libwapcaplet.pc libwapcaplet/libwapcaplet.pc
 makeuniversal_ifdirty libwapcaplet libwapcaplet.a
 lipo -info lib/libwapcaplet.a
 
 echo '------------------- libparserutils -------------------'
+ln -fs ../libparserutils.pc libparserutils/libparserutils.pc
 makeuniversal_ifdirty libparserutils libparserutils.a
 lipo -info lib/libparserutils.a
 
