@@ -1,21 +1,35 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
+[ "$1" == "--force" ] && (./reset.sh || exit $?)
+
 # --------------------------------------------------------------------------
 # checkout
 
 NETSURF_SVN_REV=11123
 if [ ! -d libparserutils ]; then
-  svn co svn://svn.netsurf-browser.org/trunk/libparserutils@$NETSURF_SVN_REV
+  if ! (svn co svn://svn.netsurf-browser.org/trunk/libparserutils@$NETSURF_SVN_REV) ; then
+    S=$?
+    rm -rf libparserutils
+    exit $S
+  fi
 fi
 if [ ! -d libwapcaplet ]; then
-  svn co svn://svn.netsurf-browser.org/trunk/libwapcaplet@$NETSURF_SVN_REV
+  if ! (svn co svn://svn.netsurf-browser.org/trunk/libwapcaplet@$NETSURF_SVN_REV) ; then
+    S=$?
+    rm -rf libparserutils
+    exit $S
+  fi
 fi
 if [ ! -d libcss ]; then
-  svn checkout svn://svn.netsurf-browser.org/trunk/libcss@$NETSURF_SVN_REV
+  if ! (svn co svn://svn.netsurf-browser.org/trunk/libcss@$NETSURF_SVN_REV) ; then
+    S=$?
+    rm -rf libparserutils
+    exit $S
+  fi
   # apply patches
   for patchfile in patches/libcss/*.patch; do
-    patch -p0 -d libcss --backup-if-mismatch -i "../$patchfile"
+    patch -p0 -d libcss --backup-if-mismatch -i "../$patchfile" || exit $?
   done
 fi
 
@@ -91,17 +105,17 @@ gcc -g -W -Wall -o example1 example1.c \
   || exit $?
 ./example1
 
-echo '------------------- CSS.framework -------------------'
-
-cd ../../cocoa-framework
-xcodebuild -project CSS.xcodeproj \
-           -target CSS \
-           -parallelizeTargets \
-           -configuration Release \
-           build \
-           > /dev/null || exit $?
-
-rm -rf ../lib/CSS.framework
-cp -Rp build/Release/CSS.framework ../lib/CSS.framework
-
-echo "done"
+#echo '------------------- CSS.framework -------------------'
+#
+#cd ../../cocoa-framework
+#xcodebuild -project CSS.xcodeproj \
+#           -target CSS \
+#           -parallelizeTargets \
+#            -configuration Release \
+#            build \
+#            > /dev/null || exit $?
+# 
+# rm -rf ../lib/CSS.framework
+# cp -Rp build/Release/CSS.framework ../lib/CSS.framework
+# 
+# echo "done"

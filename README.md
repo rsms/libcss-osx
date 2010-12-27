@@ -7,6 +7,10 @@ There's also an ongoing project building a Cocoa framework (see the `cocoa-frame
 
 ## Building
 
+Open `cocoa-framework/CSS.xcodeproj` and build the "CSS" target. Please allow the build process to take a few minutes the first time as it will check out and build all dependencies.
+
+To build only the libcss library, run:
+
     ./build.sh
 
 ## License
