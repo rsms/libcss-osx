@@ -51,6 +51,7 @@ function makeuniversal {
   CFLAGS="$CFLAGS -arch x86_64 $3" make TARGET=x86_64 || exit $?
   rm -f ../lib/$2
   lipo build-*i386*/$2 build-*x86_64*/$2 -output ../lib/$2 -create
+  ranlib ../lib/$2
   cd "$origd"
 }
 
