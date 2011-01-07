@@ -26,7 +26,7 @@ static CGFloat _UIScaleFactor() {
                             media:(css_media_type)mediaTypes
                       inlineStyle:(CSSStylesheet*)inlineStyle
                      usingHandler:(css_select_handler*)handler {
-  CSSStyle *style = [[self alloc] init];
+  CSSStyle *style = [[[self alloc] init] autorelease];
   /**
    * css_select_style -- select a style for the given node
    *

@@ -72,7 +72,8 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
                                                 (const uint8_t *)data.bytes,
                                                 data.length);
   if (status != CSS_OK && status != CSS_NEEDDATA) {
-    *outError = [NSError libcssErrorFromStatus:status];
+    if (outError)
+      *outError = [NSError libcssErrorFromStatus:status];
     if (expectsMore != nil) *expectsMore = NO;
     return NO;
   } else if (expectsMore != nil) {
