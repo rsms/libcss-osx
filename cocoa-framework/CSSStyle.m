@@ -27,6 +27,7 @@ static CGFloat _UIScaleFactor() {
                       inlineStyle:(CSSStylesheet*)inlineStyle
                      usingHandler:(css_select_handler*)handler {
   CSSStyle *style = [[[self alloc] init] autorelease];
+  if (!style) return nil;
   /**
    * css_select_style -- select a style for the given node
    *
@@ -54,7 +55,6 @@ static CGFloat _UIScaleFactor() {
           (inlineStyle ? inlineStyle.sheet : NULL), style->style_, handler,
           style));
   if (e) {
-    [style release];
     style = nil;
     [e raise];
   }
