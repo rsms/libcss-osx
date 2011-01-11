@@ -32,7 +32,7 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
 
 
 - (id)initWithURL:(NSURL*)url {
-  self = [super init];
+  if (!(self = [super init])) return nil;
 
   url_ = [url retain];
   const char *urlpch = url_ ? [[url_ absoluteString] UTF8String] : "";
@@ -100,12 +100,12 @@ static css_error dummy_url_resolver(void *pw, const char *base, lwc_string *rel,
     return;
   }
   assert(status == CSS_OK);
-  
+
   NSString *relurls = [NSString stringWithLWCString:relurl];
   NSURL *url = [NSURL URLWithString:relurls relativeToURL:url_];
   CSSStylesheet *sheet = [[CSSStylesheet alloc] initWithURL:url];
   //NSLog(@"@import(%@)", url);
-  
+
   [sheet loadFromRepresentedURLWithCallback:^(NSError *error) {
     // Note: even if there's an error we need to register the import
     css_stylesheet_register_import(sheet_, sheet->sheet_);

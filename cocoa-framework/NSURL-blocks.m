@@ -9,8 +9,8 @@
              delegate:(id)delegate
      startImmediately:(BOOL)startImmediately {
   self = [super initWithRequest:request
-                      delegate:delegate
-              startImmediately:NO];
+                       delegate:delegate
+               startImmediately:NO];
   if (self) {
     if (_onResponse) onResponse = [_onResponse copy];
     if (_onData) onData = [_onData copy];
@@ -87,17 +87,17 @@
 - (CSSURLConnection*)fetchCSSWithOnResponseBlock:(CSSURLOnResponseBlock)onResponse
                                      onDataBlock:(CSSURLOnDataBlock)onData
                                  onCompleteBlock:(CSSURLOnCompleteBlock)onComplete {
-  NSURLRequest *req = 
+  NSURLRequest *req =
       [NSURLRequest requestWithURL:self
                        cachePolicy:NSURLRequestUseProtocolCachePolicy
                    timeoutInterval:60.0];
   CSSURLConnection *conn =
       [[CSSURLConnection alloc] initWithRequest:req
-                              onResponseBlock:onResponse
-                                  onDataBlock:onData
-                              onCompleteBlock:onComplete
-                                     delegate:[CSSURLConnectionDelegate new]
-                             startImmediately:YES];
+                                onResponseBlock:onResponse
+                                    onDataBlock:onData
+                                onCompleteBlock:onComplete
+                                       delegate:[CSSURLConnectionDelegate new]
+                               startImmediately:YES];
   return conn;
 }
 
