@@ -41,6 +41,11 @@
     borderRightWidth,
     borderBottomWidth;
 
+// Block dimensions. Note: NaN is returned for e.g. "width:auto"
+@property(readonly, nonatomic) CGFloat
+    width,
+    height;
+
 // Font
 @property(readonly, nonatomic) int
     fontWeight, // 100, 400, ...

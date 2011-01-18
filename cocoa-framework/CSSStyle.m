@@ -51,7 +51,7 @@ static CGFloat _UIScaleFactor() {
    * update the fully computed style for a node when layout changes.
    */
   NSException *e =
-      CSSCheck2(css_select_style(context.ctx, object, pseudoElement, mediaTypes, 
+      CSSCheck2(css_select_style(context.ctx, object, pseudoElement, mediaTypes,
           (inlineStyle ? inlineStyle.sheet : NULL), style->style_, handler,
           style));
   if (e) {
@@ -99,63 +99,16 @@ static CGFloat _UIScaleFactor() {
 #pragma mark Style properties
 
 
-// Color
-#define SYNTHESIZE_COLOR(name, fun_suffix) - (NSColor*)name { \
-  css_color rgba; \
-  uint8_t type = css_computed_##fun_suffix(style_, &rgba); \
-  if (type == CSS_COLOR_INHERIT) return nil; \
-  else return [NSColor colorWithCSSColor:rgba]; \
-}
-
-SYNTHESIZE_COLOR(color, color)
-SYNTHESIZE_COLOR(backgroundColor, background_color)
-SYNTHESIZE_COLOR(outlineColor, outline_color)
-SYNTHESIZE_COLOR(borderTopColor, border_top_color)
-SYNTHESIZE_COLOR(borderRightColor, border_right_color)
-SYNTHESIZE_COLOR(borderBottomColor, border_bottom_color)
-SYNTHESIZE_COLOR(borderLeftColor, border_left_color)
-
-
-// Border widths
-
-  // TODO: convert non-pixel values to pixels
-#define SYNTHESIZE_BORDER_WIDTH(name, direction) \
-- (CGFloat)name { \
-  css_fixed value; \
-  css_unit unit; \
-	uint8_t r = css_computed_border_##direction##_width(style_, &value, &unit); \
-	switch (r) { \
-    case CSS_BORDER_WIDTH_THIN: return 0.5; \
-    case CSS_BORDER_WIDTH_MEDIUM: return 1.0; \
-    case CSS_BORDER_WIDTH_THICK: return 3.0; \
-    case CSS_BORDER_WIDTH_WIDTH: return FIXTOFLT(value); \
-    default: return 0.0; \
-	} \
-}
-
-SYNTHESIZE_BORDER_WIDTH(borderLeftWidth, left)
-SYNTHESIZE_BORDER_WIDTH(borderTopWidth, top)
-SYNTHESIZE_BORDER_WIDTH(borderRightWidth, right)
-SYNTHESIZE_BORDER_WIDTH(borderBottomWidth, bottom)
-
-
-// Font
-
-- (int)fontWeight { return css_computed_font_weight(style_); }
-- (int)fontStyle { return css_computed_font_style(style_); }
-- (int)fontVariant { return css_computed_font_variant(style_); }
-
-
 static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
   //NSDictionary *deviceDescription = [[NSScreen mainScreen] deviceDescription];
   //NSValue *someValue = [deviceDescription objectForKey:NSDeviceResolution];
   //CGFloat resolution = [someValue sizeValue].height;
   // "describes the window’s raster resolution in dots per inch (dpi)."
-  
+
   // em and ex whould have been computed into "absolute" units already
   assert(unit != CSS_UNIT_EM);
   assert(unit != CSS_UNIT_EX);
-  
+
 	switch (unit) {
 	case CSS_UNIT_PX:
 		return FIXTOFLT(value);;
@@ -210,6 +163,83 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
 }
 
 
+// Color
+#define SYNTHESIZE_COLOR(name, fun_suffix) - (NSColor*)name { \
+  css_color rgba; \
+  uint8_t type = css_computed_##fun_suffix(style_, &rgba); \
+  if (type == CSS_COLOR_INHERIT) return nil; \
+  else return [NSColor colorWithCSSColor:rgba]; \
+}
+
+SYNTHESIZE_COLOR(color, color)
+SYNTHESIZE_COLOR(backgroundColor, background_color)
+SYNTHESIZE_COLOR(outlineColor, outline_color)
+SYNTHESIZE_COLOR(borderTopColor, border_top_color)
+SYNTHESIZE_COLOR(borderRightColor, border_right_color)
+SYNTHESIZE_COLOR(borderBottomColor, border_bottom_color)
+SYNTHESIZE_COLOR(borderLeftColor, border_left_color)
+
+
+// Border widths
+
+// TODO: convert non-pixel values to pixels
+#define SYNTHESIZE_BORDER_WIDTH(name, direction) \
+- (CGFloat)name { \
+  css_fixed value; \
+  css_unit unit; \
+	uint8_t r = css_computed_border_##direction##_width(style_, &value, &unit); \
+	switch (r) { \
+    case CSS_BORDER_WIDTH_THIN: return 0.5; \
+    case CSS_BORDER_WIDTH_MEDIUM: return 1.0; \
+    case CSS_BORDER_WIDTH_THICK: return 3.0; \
+    case CSS_BORDER_WIDTH_WIDTH: return FIXTOFLT(value); \
+    default: return 0.0; \
+	} \
+}
+
+SYNTHESIZE_BORDER_WIDTH(borderLeftWidth, left)
+SYNTHESIZE_BORDER_WIDTH(borderTopWidth, top)
+SYNTHESIZE_BORDER_WIDTH(borderRightWidth, right)
+SYNTHESIZE_BORDER_WIDTH(borderBottomWidth, bottom)
+
+
+// Block dimensions
+
+
+- (CGFloat)width {
+  css_unit unit;
+  css_fixed value;
+	switch (css_computed_width(style_, &value, &unit)) {
+    case CSS_WIDTH_AUTO:
+      return NAN;
+    case CSS_WIDTH_SET:
+      return CSSDimensionToFontPoints(unit, value);
+    default:
+      return 0.0;
+	}
+}
+
+- (CGFloat)height {
+  css_unit unit;
+  css_fixed value;
+	switch (css_computed_height(style_, &value, &unit)) {
+    case CSS_HEIGHT_AUTO:
+      return NAN;
+    case CSS_HEIGHT_SET:
+      return CSSDimensionToFontPoints(unit, value);
+    default:
+      return 0.0;
+	}
+}
+
+
+// Font
+
+- (int)fontWeight { return css_computed_font_weight(style_); }
+- (int)fontStyle { return css_computed_font_style(style_); }
+- (int)fontVariant { return css_computed_font_variant(style_); }
+
+
 - (CGFloat)fontSize {
   css_fixed value;
   css_unit unit;
@@ -247,13 +277,13 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
 
 - (NSFont*)font {
   NSFontTraitMask fontTraitMask = 0;
-  
+
   // retrieve family names
   lwc_string **familyNames = NULL;
   uint8_t familyClass = css_computed_font_family(style_, &familyNames);
   if (familyClass == CSS_FONT_FAMILY_INHERIT)
     return nil;
-  
+
   // font style
   switch (self.fontStyle) {
     case CSS_FONT_STYLE_ITALIC:
@@ -261,11 +291,11 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
       fontTraitMask |= NSItalicFontMask;
       break;
   }
-  
+
   // font variant
   if (self.fontVariant == CSS_FONT_VARIANT_SMALL_CAPS)
     fontTraitMask |= NSSmallCapsFontMask;
-  
+
   // font weight (currently only "bold" is supported)
   switch (self.fontWeight) {
     case CSS_FONT_WEIGHT_BOLD:
@@ -290,7 +320,7 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
         break;
     }
   }
-  
+
   // try symbolic class
   if (!font) {
     NSString *familyName = @"Lucida Grande";
@@ -306,7 +336,7 @@ static CGFloat CSSDimensionToFontPoints(css_unit unit, css_fixed value) {
                                 weight:0
                                   size:fontSize];
   }
-  
+
   return font;
 }
 
