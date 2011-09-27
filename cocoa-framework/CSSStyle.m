@@ -205,7 +205,6 @@ SYNTHESIZE_BORDER_WIDTH(borderBottomWidth, bottom)
 
 // Block dimensions
 
-
 - (CGFloat)width {
   css_unit unit;
   css_fixed value;
@@ -232,6 +231,21 @@ SYNTHESIZE_BORDER_WIDTH(borderBottomWidth, bottom)
 	}
 }
 
+// line dimensions
+
+- (CGFloat)lineHeight { 
+  css_unit unit;
+  css_fixed value;
+  switch (css_computed_line_height(style_, &value, &unit)) {
+    case CSS_LINE_HEIGHT_NUMBER:
+      return FIXTOFLT(value);
+    case CSS_LINE_HEIGHT_DIMENSION:
+      // TODO - change according to unit
+      return FIXTOFLT(value);
+    default:
+      return 0.0;
+	}
+}
 
 // Font
 
